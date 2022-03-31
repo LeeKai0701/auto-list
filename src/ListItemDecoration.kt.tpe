@@ -1,0 +1,28 @@
+import android.graphics.Rect
+import android.view.View
+import androidx.recyclerview.widget.RecyclerView
+
+^c#class ListItemDecoration(private var mVer:Int = 0, private var mHor:Int = 0): RecyclerView.ItemDecoration() {
+
+    override fun getItemOffsets(
+        outRect: Rect,
+        view: View,
+        parent: RecyclerView,
+        state: RecyclerView.State
+    ) {
+        super.getItemOffsets(outRect, view, parent, state)
+        val index = parent.getChildAdapterPosition(view)
+        outRect.top = mVer
+        outRect.left = mHor
+        outRect.right = mHor
+        val adapter = parent.adapter
+        if (adapter != null) {
+            if (index == adapter.itemCount - 1) {
+                outRect.bottom = mVer
+            } else {
+                outRect.bottom = 0
+            }
+        }
+    }
+
+}

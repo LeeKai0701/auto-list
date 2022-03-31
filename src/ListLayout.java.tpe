@@ -1,0 +1,29 @@
+import android.view.View;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+^c#public class ListLayout extends AppCompatActivity {
+
+    private RecyclerView mList;
+^p0#    private #P# mAdapter;
+>>0#
+    @Override
+    public void setContentView(View view) {
+        super.setContentView(view);
+^p1#        setContentView(R.layout.#P#);
+        initView();
+    }
+
+    private void initView() {
+        mList = findViewById(R.id.rv_list);
+        mList.setLayoutManager(new LinearLayoutManager(this));
+^p0#        mAdapter = new #P#(this);
+        mList.setAdapter(mAdapter);
+>>>>>>1#
+    }
+
+>>2#
+
+}

@@ -1,0 +1,32 @@
+import android.graphics.Rect;
+import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+^c#public class ListItemDecoration extends RecyclerView.ItemDecoration {
+
+    private int mVer;
+    private int mHor;
+
+^c#    public ListItemDecoration(int verticalSpace, int horizontalSpace) {
+        mVer = verticalSpace;
+        mHor = horizontalSpace;
+    }
+
+    @Override
+    public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
+        super.getItemOffsets(outRect, view, parent, state);
+        int index = parent.getChildAdapterPosition(view);
+        outRect.top = mVer;
+        outRect.left = mHor;
+        outRect.right = mHor;
+        RecyclerView.Adapter adapter = parent.getAdapter();
+        if (adapter != null) {
+            if (index == adapter.getItemCount() - 1) {
+                outRect.bottom = mVer;
+            } else {
+                outRect.bottom = 0;
+            }
+        }
+    }
+}

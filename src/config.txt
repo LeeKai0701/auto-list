@@ -1,0 +1,16 @@
+# 配置文件的格式要严格按照 key=value 的样式写，中间不允许有任何空格或者其他字符
+#1 选择代码语言，java或者kotlin，选写1个
+language=java/kotlin
+#2 配置已经写好的列表item布局文件，写相对于脚本执行的路径或者绝对路径都可以，列表的holder会根据这个
+# 文件来填充视图和初始化所有有id的View
+itemXmlPath=./my_custom_item.xml
+#3 是否支持下拉刷新，true或者false二选一
+hasPullRefresh=true/false
+#4 是否需要自动生成外层页面文件，填写了文件名才会生成文件，否则是没有的
+layoutXmlName=device_list_layout.xml
+#5 是否需要列表item之间有间隙装饰效果，true或者false二选一，选择true之后，默认间隙是0，可以按照需求修改
+hasSpaceDecoration=true/false
+#6 数据模型的类名，配置之后会替换Adapter中数据的类型
+dataBeanName=UiDevBean
+#7 业务名设置
+bizName=SpaceDevice

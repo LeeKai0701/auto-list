@@ -1,0 +1,46 @@
+import android.content.Context
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+
+^c#class ListAdapter(private val mContext: Context): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+^p#    private val mData = mutableListOf<#P#>()
+
+^p#    fun setData(list: List<#P#>?) {
+        mData.clear()
+        list?.let {
+            mData.addAll(it)
+        }
+        notifyDataSetChanged()
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        val inflate = LayoutInflater.from(mContext).inflate(getLayoutResource(viewType), parent, false)
+        return ListViewHolder(inflate)
+    }
+
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        (holder as ListViewHolder).update(mData[position], position)
+    }
+
+    override fun getItemCount(): Int {
+        return mData.size
+    }
+
+    private fun getLayoutResource(viewType: Int): Int {
+>>>>>>0#
+    }
+
+    inner class ListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+>>>>>>1#
+        init {
+>>>>>>>>>>2#
+        }
+
+^p#        fun update(data: #P#, pos: Int) { }
+    }
+
+
+}

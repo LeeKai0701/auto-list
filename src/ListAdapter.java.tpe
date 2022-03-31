@@ -1,0 +1,58 @@
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+import java.util.ArrayList;
+import java.util.List;
+
+^c#public class ListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+
+^p#    private List<#P#> mData = new ArrayList<>();
+    private Context mContext;
+
+^c#    public ListAdapter(Context context) {
+        mContext = context;
+    }
+
+^p#       public void setData(List<#P#> list) {
+        mData.clear();
+        if (list != null) {
+            mData.addAll(list);
+        }
+        notifyDataSetChanged();
+    }
+    
+    @NonNull
+    @Override
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View inflate = LayoutInflater.from(mContext).inflate(getLayoutResource(viewType), parent,false);
+        return new ListViewHolder(inflate);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        ((ListViewHolder) holder).update(mData.get(position), position);
+    }
+
+    @Override
+    public int getItemCount() {
+        return mData.size();
+    }
+
+    private int getLayoutResource(int viewType) {
+>>>>>>0#
+    }
+
+    static class ListViewHolder extends RecyclerView.ViewHolder {
+>>>>>>1#
+        public ListViewHolder(View itemView) {
+            super(itemView);
+>>>>>>>>>>2#
+        }
+
+^p#        private void update(final #P# data, final int pos) { }
+    }
+
+}
